@@ -7,6 +7,7 @@ A GenAI powered tool that generates optimized Dockerfiles based on programming l
 ### Installing Ollama
 
 1. **Download and Install Ollama**
+
    ```bash
    # For Linux
    curl -fsSL https://ollama.com/install.sh | sh
@@ -16,11 +17,13 @@ A GenAI powered tool that generates optimized Dockerfiles based on programming l
    ```
 
 2. **Start Ollama Service**
+
    ```bash
    ollama serve
    ```
 
 3. **Pull Llama3 Model**
+
    ```bash
    ollama pull llama3.2:1b
    ```
@@ -28,19 +31,22 @@ A GenAI powered tool that generates optimized Dockerfiles based on programming l
 ## 🚀 Project Setup
 
 1. **Create Virtual Environment**
+
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Linux/MacOS
+   python3 -m venv day3
+   source day3/bin/activate  # On Linux/MacOS
    # or
    .\venv\Scripts\activate  # On Windows
    ```
 
 2. **Install Dependencies**
+
    ```bash
    pip3 install -r requirements.txt
    ```
 
 3. **Run the Application**
+
    ```bash
    python3 generate_dockerfile.py
    ```
@@ -61,6 +67,7 @@ Enter programming language: python
 ```
 
 ## 🏆 Troubleshooting
+
 - Make sure Ollama service is running before executing the script.
 - Ensure the correct model is downloaded.
 - Adapt best practices for other programming languages as needed.

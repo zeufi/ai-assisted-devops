@@ -11,8 +11,19 @@ Include:
 """
 
 def generate_dockerfile(language):
-    response = ollama.chat(model='llama3.1:8b', messages=[{'role': 'user', 'content': PROMPT.format(language=language)}])
-    return response['message']['content']
+    # Try common model names - will use first available
+    models_to_try = ['llama3.2:3b', 'llama3.2', 'llama3.1', 'llama3', 'llama2', 'mistral', 'phi']
+    
+    for model in models_to_try:
+        try:
+            response = ollama.chat(model=model, messages=[{'role': 'user', 'content': PROMPT.format(language=language)}])
+            print(f"Using model: {model}")
+            return response['message']['content']
+        except ollama._types.ResponseError:
+            continue
+    
+    # If no models found, raise error with helpful message
+    raise Exception("No compatible models found. Run 'ollama list' to see available models or 'ollama pull llama3.2:3b' to download one.")
 
 if __name__ == '__main__':
     language = input("Enter the programming language: ")
