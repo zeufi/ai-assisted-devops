@@ -1,4 +1,4 @@
-import ollama
+import ollama # type: ignore
 
 PROMPT = """
 ONLY Generate an ideal Dockerfile for {language} with best practices. Do not provide any description

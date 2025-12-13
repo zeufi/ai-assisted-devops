@@ -1,4 +1,4 @@
-import google.generativeai as genai
+import google.generativeai as genai # type: ignore
 import os
 
 # Set your API key here
